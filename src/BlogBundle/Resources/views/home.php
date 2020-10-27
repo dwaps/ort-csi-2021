@@ -20,7 +20,7 @@
       </nav>
 
       <div class="articles">
-      <?php foreach ($articles as $article): ?>
+      <?php foreach ($attributes['articles'] as $article): ?>
         <article>
           <h1><?= $article->getTitle() ?></h1>
           <div class="meta-data">
