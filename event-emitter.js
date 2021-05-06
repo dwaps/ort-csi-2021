@@ -1,13 +1,18 @@
 class EventEmitter {
     
     on(name, callback) {
-        return name + ' ' + callback;
+        evenement = {};
+        evenement[name] = callback;
     }
 
     emit(name) {
-        console.log(evenement.on(name));
+        for (var e in evenement) {
+            if (e === name){
+                evenement[e]();
+            }
+        }
     }
 }
 evenement = new EventEmitter;
 
-module.exports = EventEmitter;
+module.exports = EventEmitter;  
