@@ -5,16 +5,16 @@ class EventEmitter {
 
     on(eventName, func) {
         if (eventName)
-            this.myevents[eventName] = (func);
+            this.myevents[eventName] = [func];
 
         else
-            this.myevents[eventName] = [func];
+            this.myevents[eventName].push(func);
     }
-    emit(eventName, ...res) {
+    emit(eventName, ...rest) {
         if (eventName) {
             if (this.myevents[eventName]) {
                 this.myevents[eventName].forEach(cb => {
-                    return cb.apply(res)
+                    return cb.apply(rest)
                 })
             } else
                 return this.myevents[eventName]
@@ -25,6 +25,4 @@ class EventEmitter {
 const emitter = new EventEmitter();
 
 emitter.on("salut")
-console.log(emitter.emit("salut", function(1, 2) {
-   
-}));
+console.log(emitter.emit("salut",a,b));
