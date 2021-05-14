@@ -1,0 +1,10 @@
+$colors: coral white;
+
+body {
+  background: nth($colors, 1);
+  color: nth($colors, 2);
+}
+
+h1 {
+  text-align: center;
+}
