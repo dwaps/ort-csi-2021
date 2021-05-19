@@ -4,15 +4,14 @@ class EventEmitter{
         this.events = {};
     }
 
-    on(eventName, element){
-        this.events[eventName] = element;
+    on(eventName, listener){
+        this.events[eventName] = this.events[eventName] || [];
+        this.events[eventName].push(listener);
     }
 
-    emit(eventName){
-        for (var event in this.events) {
-            if (event === eventName){
-                this.events[event]();
-            }
+    emit(eventName, ...args){
+        if (this.events[eventName]){
+            this.events[eventName].forEach(listener => listener(...args));
         }
     }
 }
