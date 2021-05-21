@@ -1,7 +1,8 @@
 const EventEmitter = require("./event-emitter");
+const loader = require("./loader");
 
 const emitter = new EventEmitter();
+const ld = new loader();
 
-emitter.on("EVENT"); //Barre de chargement
-//console.log(emitter.on());
-emitter.emit("EVENT"); //fin du chargement
+ld.on(); // Lancement du chargment
+emitter.emit(); //fin du chargement
