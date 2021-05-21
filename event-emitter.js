@@ -1,25 +1,58 @@
+"use strict";
+
+let counter = 0;
+var chiffre;
+var speed;
+
 class EventEmitter {
-  constructor() {
-    this.listen = {};
-  }
-
-  addListen(eventName, fn) {
-    this.listen[eventName] = this.listen[eventName] || [];
-    this.listen[eventName].push(fn);
-    return this;
-  }
-
-  on(eventName, fn) {
-    return this.addListen(eventName, fn);
-  }
-
-  emit(eventName, ...args) {
-    let fns = this.listen[eventName];
-    if (!fns) return false;
-    fns.forEach((f) => {
-      f(...args);
+  on() {
+    const readline = require("readline");
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
     });
-    return true;
+
+    rl.question("Nombre de point : ", (chiffre) => {
+      rl.question("À quelle vitesse (1000 = vitesse normal) : ", (speed) => {
+        this.chiffre = chiffre;
+        this.speed = speed;
+
+        /*Enlevez le commentaire pour l'animation
+
+        const cowsay = require("cowsay");
+        const str = cowsay.say({
+          text: "Zeeeeee Partie",
+          e: "oo",
+          T: "UU",
+        });
+        console.log(str);
+
+        */
+
+        console.log("C'est partie !");
+
+        const display = (count) => {
+          const progress = "•".repeat(count).padEnd(chiffre, "·");
+
+          console.log(`(${progress}) Chargement en cours`);
+        };
+
+        setInterval(() => {
+          counter++;
+          display(counter);
+
+          if (counter == chiffre) {
+            console.log("Chargement terminé !");
+            process.exit(0);
+          }
+        }, speed);
+
+        rl.close();
+      });
+    });
+  }
+  emit() {
+    return "Chargement terminé";
   }
 }
 
