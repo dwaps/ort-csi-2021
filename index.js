@@ -1,9 +1,8 @@
-// Fichier index.js
-// Importer la classe EventEmitter+
-const EventEmitter = require('./event-emitter')
+const EventEmitter = require("./event-emitter");
+const loader = require("./loader");
 
 const emitter = new EventEmitter();
+const ld = new loader();
 
-emitter.on('MY_EVENT', () => console.log('event emitted !'));
-
-emitter.emit('MY_EVENT');
+ld.on(); // Lancement 
+emitter.emit(); //fin 
