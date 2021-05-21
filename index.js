@@ -1,3 +1,6 @@
-const EventEmitter = require ('./event-emitter.js');
-const emitter = new EventEmitter();
-emitter.emit('MY_EVENT');
+const { chargementEvent } = require("./event");
+const { nomDuChargement, chargement } = require("./loader");
+
+chargementEvent.on(nomDuChargement, console.log);
+
+chargementEvent.emit(nomDuChargement, chargement("$",1000, 5));// Parametre SIGNE VITESSE NOMBRESIGNE
