@@ -5,7 +5,7 @@ const emitter = new EventEmitter();
 // Manage the on method of event
 emitter.on('date', (speed, nbrLap) => {
     // On method .on, it calls the method setInterval of loader.js
-    Loader.testInterval(speed, nbrLap);
+    Loader.loadingBar(speed, nbrLap);
 })
 
 // It exports the object "emitter"
