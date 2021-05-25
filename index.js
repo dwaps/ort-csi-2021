@@ -1,4 +1,4 @@
-const EventEmitter = require('./event-emitter');
+const EventEmitter = require('./event');
 const emitter = new EventEmitter();
 
 emitter.on('EVENT'); //Barre de chargement
