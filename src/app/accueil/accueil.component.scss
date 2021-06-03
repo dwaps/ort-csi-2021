@@ -1,0 +1,18 @@
+.accueil-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  .left {
+    width: 40%;
+    height: 100%;
+    font-size: 5rem;
+    line-height: 80vh;
+    margin-left: 100px;
+  }
+  .right {
+      width: 60%;
+      height: 100%;
+      background: url("./../../assets/Illustrations.png") no-repeat;
+      background-size: 80%;
+  }
+}

@@ -1,0 +1,7 @@
+<div class="todo-row">
+     <!-- <div *ngIf="!modifiable" class="todo-tache" (click)="onChangeTodo(this)" > {{tache}} </div>  -->
+    <input type="text" class="todo-tache" (blur)="onChangeTodo()" [(ngModel)]="tache"
+    >
+    <div (click)="onRemoveTodo()" class="delete-todo">
+        <span class="trash"></span>
+    </div>

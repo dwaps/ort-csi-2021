@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi&family=Sree+Krushnadevaraya&display=swap");
+
+%input {
+  width: 390px;
+  background: #eeeeee;
+  margin-bottom: 12px;
+  outline: none;
+  border: 1px solid #c5c4c4;
+  box-sizing: border-box;
+  margin: 6px auto;
+  font-family: "Reem Kufi", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.contact-container {
+  width: 500px;
+  height: 520px;
+  margin: auto;
+  text-align: center;
+  h2 {
+    font-family: "Sree Krushnadevaraya", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 74px;
+    margin: 0;
+  }
+  hr {
+    width: 390px;
+    margin: 0 auto 8px;
+  }
+  h4 {
+    font-family: "Reem Kufi";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0 0 36px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      @extend %input;
+      height: 36px;
+    }
+    textarea {
+      @extend %input;
+    }
+    .valider-contact{
+        font-family: "Reem Kufi" sans-serif;
+        width: 60px;
+        height: 30px;
+        margin: auto;
+    }
+  }
+}

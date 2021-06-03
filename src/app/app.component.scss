@@ -1,0 +1,41 @@
+.app-container {
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0 40px 0;
+      padding: 0;
+      width: 300px;
+      height: 30px;
+      text-align: center;
+      background: white;
+      border-radius: 50px;
+      li {
+        width: 100px;
+        height: 100%;
+        margin: 0 10px;
+        line-height: 30px;
+        font-size: 1rem;
+        list-style-type: none;
+        a {
+          color: hsla(0, 9%, 2%, 0.822);
+          &:hover {
+              color: hsl(0, 4%, 36%);
+          }
+        }
+      }
+    }
+  }
+}
+
+.inactive {
+    text-decoration: none;
+}
+
+.active {
+  text-decoration: solid underline #7b38cf 3px;
+}

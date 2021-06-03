@@ -1,0 +1,13 @@
+<div class="todo-table-container">
+    <h1>Todo App</h1>
+    <form (submit)="onAddTodo()" class="add-todo-container">
+        <input type="text" name="addTodo" [(ngModel)]="inputTodo" class="todo-input" placeholder="Ajouter une nouvelle tâche">
+        <input type="submit" value="+" class="todo-add-button">
+    </form>
+    <app-todo-row *ngFor="let todo of todos let i = index" [tache]="todo.tache" [index]="i"
+    ></app-todo-row>
+    <div class="taks-number-container">
+        <div class="task-number"> Tu as {{todos.length }} taches à faire</div>
+        <input type="submit" (click)="onDeleteAll()"  value="Tout supprimer" class="todo-reset">
+    </div>
+</div>
