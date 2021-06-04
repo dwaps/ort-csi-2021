@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { init } from 'emailjs-com';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
