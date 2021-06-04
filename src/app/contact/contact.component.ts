@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 export class ContactComponent implements OnInit {
 
   constructor() {
-    init("user_JdGhiHzXxXHSAKx9R2NO7");
    }
 
   ngOnInit(): void {
