@@ -1,16 +1,26 @@
-<div class="main">
+<div class="d-flex flex-column align-items-center justify-content-around">
 
-    <label for="addItemInput">Voulez-vous ajouter un item ?</label>
+    <div>
+        <label for="addItemInput">Voulez-vous ajouter un item ?</label>
 
-    <input #newItem placeholder="ajouter un item" (keyup.enter)="addItem(newItem.value); newItem.value = ''"
-        class="g-text-input" id="addItemInput" />
+        <input #newItem placeholder="ajouter un item" (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+            class="g-text-input" id="addItemInput" />
 
-    <button class="btn btn-secondary btn-lg" (click)="addItem(newItem.value)">Add</button>
+        <button class="btn btn-secondary btn-lg" (click)="addItem(newItem.value)">Add</button>
+    </div>
 
     <ul *ngFor="let item of items; index as i;">
-        <li>
+        <li class=" p-3 mb-2 bg-info text-white d-flex flex-column align-items-center justify-content-around">
             {{item.description}}
-            <button class="btn btn-secondary btn-lg" (click)="delete(i)">Delete</button>
+            <div>
+                <button class="btn btn-secondary btn-lg" (click)="delete(i)">Delete</button>
+            </div>
+            <div>
+                <button class="btn btn-secondary btn-lg" (click)="update(newItem.value,i)">Update</button>
+                <input #newItem placeholder="modifie l'item"
+                    (keyup.enter)="update(newItem.value, i); newItem.value = ''" class="g-text-input"
+                    id="modItemInput" />
+            </div>
         </li>
     </ul>
 </div>

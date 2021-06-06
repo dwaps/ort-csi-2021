@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 
 export class ListeComponent {
-  title = 'todo';
 
   allItems = [
     { description: 'first' },
@@ -21,10 +20,15 @@ export class ListeComponent {
     this.allItems.unshift({
       description,
     });
+    // localStorage.setItem('tasks', description);
   }
 
   delete(index: number) {
-    this.allItems.splice(index, 1)
+    this.allItems.splice(index, 1);
+  }
+
+  update(description: string, index: number) {
+    this.allItems[index].description = description
   }
 
 }
