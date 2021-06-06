@@ -1,26 +1,17 @@
-<div class="d-flex flex-column align-items-center justify-content-around">
+<form (submit)="addItem()" class=" p-3 mb-2 bg-info text-white d-flex align-items-center justify-content-center">
+    <input type="text" name="item_description" placeholder="description" [(ngModel)]="newItem.description">
+    <input type="submit" value="Ajouter">
+</form>
 
-    <div>
-        <label for="addItemInput">Voulez-vous ajouter un item ?</label>
-
-        <input #newItem placeholder="ajouter un item" (keyup.enter)="addItem(newItem.value); newItem.value = ''"
-            class="g-text-input" id="addItemInput" />
-
-        <button class="btn btn-secondary btn-lg" (click)="addItem(newItem.value)">Add</button>
+<div *ngFor="let item of items; index as i;">
+    <div class=" p-3 mb-2 bg-info text-white d-flex flex-column align-items-center justify-content-around">
+        <li>{{item.description}}</li>
+        <div>
+            <button class="btn btn-secondary btn-lg" (click)="delete(i)">Delete</button>
+        </div>
+        <form (submit)="update(fondo.value,i)">
+            <input #fondo type="text" name="newValue" placeholder="nouvelle description">
+            <input class="btn btn-secondary btn-lg" type="submit" value="Update">
+        </form>
     </div>
-
-    <ul *ngFor="let item of items; index as i;">
-        <li class=" p-3 mb-2 bg-info text-white d-flex flex-column align-items-center justify-content-around">
-            {{item.description}}
-            <div>
-                <button class="btn btn-secondary btn-lg" (click)="delete(i)">Delete</button>
-            </div>
-            <div>
-                <button class="btn btn-secondary btn-lg" (click)="update(newItem.value,i)">Update</button>
-                <input #newItem placeholder="modifie l'item"
-                    (keyup.enter)="update(newItem.value, i); newItem.value = ''" class="g-text-input"
-                    id="modItemInput" />
-            </div>
-        </li>
-    </ul>
 </div>
