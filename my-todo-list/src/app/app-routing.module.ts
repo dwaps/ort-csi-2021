@@ -21,6 +21,6 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

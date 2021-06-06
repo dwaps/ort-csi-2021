@@ -1,17 +1,16 @@
 <div class="main">
-    <h1>My To Do List</h1>
 
-    <label for="addItemInput">What would you like to do today?</label>
+    <label for="addItemInput">Voulez-vous ajouter un item ?</label>
 
-    <input #newItem placeholder="add an item" (keyup.enter)="addItem(newItem.value); newItem.value = ''"
-        class="lg-text-input" id="addItemInput" />
+    <input #newItem placeholder="ajouter un item" (keyup.enter)="addItem(newItem.value); newItem.value = ''"
+        class="g-text-input" id="addItemInput" />
 
-    <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+    <button class="btn btn-secondary btn-lg" (click)="addItem(newItem.value)">Add</button>
 
     <ul *ngFor="let item of items; index as i;">
         <li>
             {{item.description}}
-            <button (click)="delete(i)"></button>
+            <button class="btn btn-secondary btn-lg" (click)="delete(i)">Delete</button>
         </li>
     </ul>
 </div>
