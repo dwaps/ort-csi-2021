@@ -1,0 +1,17 @@
+<div class="afaire">
+    <form (submit)="ajoutTache()">
+        <input
+            type="text"
+            name="nouvelleTacheAfaire"
+            placeholder="Nouvelle tache"
+            class="afaire-input"
+            [(ngModel)]="inputAfaire"
+        />
+        <input type="submit" value="Ajout tache" class="afaire-sumbit"/>
+    </form>
+    <div *ngFor="let afaire of afaire; let i = index;" class="afaire {{ (afaire.completed ? 'done' : '') }}">
+        <div class="id">{{ i }}</div>
+        <div class="contenue" (click)="toggleDone(i)">{{ afaire.content }}</div>
+        <button class="supprimer" (click)="supprimeAfaire(i)">Supprimer</button>
+    </div>
+</div>
