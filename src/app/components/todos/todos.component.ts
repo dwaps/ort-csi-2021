@@ -16,8 +16,12 @@ export class TodosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.todos=[];
-    this.todos = JSON.parse(localStorage.getItem('todos')||'{}') || [];
+    if (localStorage.getItem('todos'))
+      this.todos = JSON.parse(localStorage.getItem('todos') || '{}');
+    else {
+      this.todos = [];
+      localStorage.setItem('todos', JSON.stringify(this.todos));
+    }
   }
 
   toggleDone (id:number) {
@@ -34,8 +38,6 @@ export class TodosComponent implements OnInit {
   }
 
   addTodo () {
-    console.log(this.inputTodo);
-    console.log(this.todos);
     this.todos.push({
       content: this.inputTodo,
       completed: false
