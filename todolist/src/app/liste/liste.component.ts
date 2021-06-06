@@ -12,10 +12,9 @@ export class ListeComponent {
   filter: 'all' | 'active' | 'done' = 'all';
 
   allItems = [
-    { description: 'eat', done: true },
-    { description: 'sleep', done: false },
-    { description: 'play', done: false },
-    { description: 'laugh', done: false },
+    { description: 'buy some milk', done: true },
+    { description: 'wash the car', done: false },
+    { description: 'sell the table', done: false },
   ];
 
   get items() {

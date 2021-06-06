@@ -1,13 +1,48 @@
-<h1>Première application</h1>
+<style>
+    .list{
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-<nav>
-    <ul>
-        <li><a routerLink="/home">Home</a></li>
-        <li><a routerLink="/liste">Liste</a></li>
-        <li><a routerLink="/contact">Contact</a></li>
-    </ul>
-</nav>
+    .list div input{
+        border: none;
+        font-size: 20px;
+        padding: 5px;
+    }
 
-<div class="mt-5">
-    <router-outlet></router-outlet>
+    .list div button{
+        font-size: 20px;
+        background-color: rgb(73, 99, 160);
+        border: none;
+        color: white;
+        padding: 5px;
+    }
+
+    .item{
+        text-align: left;
+    }
+
+    ul {
+        list-style: none;
+    }
+</style>
+
+<div class="main">
+    <h2 style="text-align: center;margin-top: 80px;">My To Do List</h2>
+    <div class="list">
+        <div>
+            <input #newItem placeholder="add an item" (keyup.enter)="addItem(newItem.value); newItem.value = ''"class="lg-text-input" id="addItemInput" />
+            <button class="btn-primary" (click)="addItem(newItem.value)">Add</button>
+        </div>
+        <div class="item">
+            <ul *ngFor="let item of items; index as i;">
+                <li>
+                    <button (click)="delete(i)">X</button>
+                    {{item.description}}
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
