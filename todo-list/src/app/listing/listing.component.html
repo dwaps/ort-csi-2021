@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row mt-5 d-flex">
+    <div class="border p-5 w-100 m-2">
+
+      <h2 class="mb-3">{{ titleList }}</h2>
+      <div *ngIf="getNumberTasks() > 0 else noResult">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Statut</th>
+              <th>Tache</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of tasks">
+              <td *ngIf="task.finish === false"><i class="far fa-circle" (click)="changeStatus(task.id)" style="cursor: pointer"></i></td>
+              <td *ngIf="task.finish === true"><i class="fas fa-circle" (click)="changeStatus(task.id)" style="cursor: pointer"></i></td>
+              <td>{{ task.title }}</td>
+              <td><a class="m-3" (click)="showUpdateForm(task.id)" ><i class="fas fa-pencil-alt" style="cursor: pointer"></i></a>  <a class="m-3" (click)="removeTask(task.id)"><i class="fas fa-trash-alt" style="cursor: pointer"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ng-template #noResult>
+        <p class="text-center">Aucune tache</p>
+        <hr>
+      </ng-template>
+
+      <div class="text-center mt-5 border w-50 m-auto p-2">
+
+        <h6>Ajouter une tache : </h6>
+
+        <form #taskForm="ngForm" class="w-50 m-auto">
+          <input type="text" class="form-control" id="title" required name="title" ngModel #title="ngModel" placeholder="titre">
+          <button type="submit" class="btn btn-default" (click)="addTask(title.value); taskForm.reset()">Ajouter</button>
+        </form>
+
+      </div>
+
+      <div class="m-2 text-center mt-5" *ngIf="updateForm === true">
+
+        <h6>Modifier la tache : </h6>
+
+        <form class="w-25 m-auto">
+          <input type="text" class="form-control" id="titleUp" required name="title" [formControl]="titleUpd" placeholder="titre">
+          <input type="hidden" class="form-control" id="idTaskUp" required name="idTask" [formControl]="idUpd">
+          <button type="submit" class="btn btn-default" (click)="editTask(titleUpd.value, idUpd.value)">Modifier</button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
