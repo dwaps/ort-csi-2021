@@ -1,21 +1,23 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { Todo } from "../models/todo";
+import { environment } from '../../../environments/environment';
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
+  private urlApiTodos = environment.urlApi + "/todos";
   public todos$ = new BehaviorSubject<Todo[]>([]);
 
-  constructor() {
-    setTimeout(() => {
-      const todosReceivedFromServer = [
-        new Todo("Faire la vaisselle"),
-        new Todo("Faire le ménage"),
-        new Todo("Faire les courses"),
-      ];
-      this.todos$.next(todosReceivedFromServer);
-    }, 3000);
+  constructor(private http: HttpClient) {
+    this.getTodos();
+  }
+
+  public getTodos() {
+    this.http
+      .get<Todo[]>(this.urlApiTodos)
+      .subscribe(data => this.todos$.next(data));
   }
 }

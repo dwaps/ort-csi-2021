@@ -1,0 +1,25 @@
+{
+  "todos": [
+    {
+      "id": "1c555584-ccb6-42e4-858c-08e25ee6a173",
+      "message": "Faire la vaisselle"
+    },
+    {
+      "id": "2e9fee05-1b95-4152-a0b0-fe40420e843b",
+      "message": "Aller courir"
+    },
+    {
+      "id": "bebfa73e-bcda-4f8b-b53a-8d38c0fab5b4",
+      "message": "Faire les courses"
+    },
+    {
+      "id": "09d98efb-1a4d-4559-8e20-3ebbd32c3034",
+      "message": "Voyager à travers le monde"
+    },
+    {
+      "id": "f69a88c5-5445-4543-bac9-d7c09f3092ea",
+      "message": "Construire un radeau",
+      "done": true
+    }
+  ]
+}

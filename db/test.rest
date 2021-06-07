@@ -1,0 +1,8 @@
+POST http://localhost:3000/todos
+Content-Type: application/json
+
+{
+  "id": "f69a88c5-5445-4543-bac9-d7c09f3092ea",
+  "message": "Construire un radeau",
+  "done": true
+}
