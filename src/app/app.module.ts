@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ReversePipe } from './reverse.pipe';
+import { MyDirectiveDirective } from './my-directive.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ReversePipe,
+    MyDirectiveDirective,
   ],
   imports: [
     BrowserModule,
