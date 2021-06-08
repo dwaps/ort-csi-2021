@@ -3,15 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { BtChronoComponent } from './bt-chrono/bt-chrono.component';
-import { ChronoComponent } from './chrono/chrono.component';
+import { CounterParentComponent } from './counter-parent/counter-parent.component';
+import { CounterChildComponent } from './counter-child/counter-child.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BtChronoComponent,
-    ChronoComponent,
+    CounterParentComponent,
+    CounterChildComponent,
   ],
   imports: [
     BrowserModule,
