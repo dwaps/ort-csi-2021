@@ -4,13 +4,14 @@ import { Todo } from 'src/app/shared/models/todo';
 import { TodoService } from 'src/app/shared/services/todo.service';
 
 @Component({
-  selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css'],
+  selector: 'app-todos',
+  templateUrl: './todos.component.html',
+  styleUrls: ['./todos.component.css']
 })
-export class TodoComponent implements OnInit, OnDestroy {
+export class TodosComponent implements OnInit, OnDestroy {
 
   public todos: Todo[] = [];
+  public todoJson: Todo|null = null;
 
   private subscription: Subscription|null = null;
 

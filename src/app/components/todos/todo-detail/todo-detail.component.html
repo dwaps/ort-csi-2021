@@ -1,0 +1,8 @@
+<h1>Détail de la tâche sélectionnée</h1>
+<p>
+  <strong>Identifiant:</strong> {{ todo?.id }}<br>
+  <strong>Message:</strong> {{ todo?.message }}<br>
+  <strong>Etat:</strong> {{ todo?.done ? '🟢' : '🔴' }}
+</p>
+
+<button routerLink="/todolist">Retour</button>

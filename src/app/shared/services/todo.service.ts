@@ -20,4 +20,8 @@ export class TodoService {
       .get<Todo[]>(this.urlApiTodos)
       .subscribe(data => this.todos$.next(data));
   }
+
+  public getTodo(id: string) {
+    return this.todos$.value.find(t => t.id === id);
+  }
 }

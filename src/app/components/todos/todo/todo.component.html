@@ -1,0 +1,11 @@
+<div
+    class="todo"
+    [ngStyle]="{ 'text-decoration': todo.done ? 'line-through' : '' }">
+    <input
+      [id]="todo.id"
+      [checked]="todo.done"
+      type="checkbox"
+      (change)="todo.done = !todo.done">
+    <label [for]="todo.id">{{ todo.message }}</label>
+    --- <button [routerLink]="['/todo', todo.id]">▶︎</button>
+</div>
