@@ -3,15 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CounterParentComponent } from './counter-parent/counter-parent.component';
-import { CounterChildComponent } from './counter-child/counter-child.component';
+import { ReversePipe } from './reverse.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CounterParentComponent,
-    CounterChildComponent,
+    ReversePipe,
   ],
   imports: [
     BrowserModule,
