@@ -11,7 +11,7 @@ import { TodoService } from 'src/app/shared/services/todo.service';
 export class TodosComponent implements OnInit, OnDestroy {
 
   public todos: Todo[] = [];
-  public todoJson: Todo|null = null;
+  public todo: Todo = new Todo();
 
   private subscription: Subscription|null = null;
 
@@ -21,6 +21,10 @@ export class TodosComponent implements OnInit, OnDestroy {
     this.subscription = this.todoService.todos$.subscribe(data => {
       this.todos = data;
     });
+  }
+
+  submitForm() {
+    this.todoService.createTodo(this.todo);
   }
 
   ngOnDestroy() {

@@ -1,6 +1,6 @@
 <div
     class="todo"
-    [ngStyle]="{ 'text-decoration': todo.done ? 'line-through' : '' }">
+    [style.textDecoration]="todo.done ? 'line-through' : ''">
     <input
       [id]="todo.id"
       [checked]="todo.done"

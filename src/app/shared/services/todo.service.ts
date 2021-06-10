@@ -24,4 +24,10 @@ export class TodoService {
   public getTodo(id: string) {
     return this.todos$.value.find(t => t.id === id);
   }
+
+  public createTodo(todo: Todo) {
+    this.http
+      .post<Todo>(this.urlApiTodos, todo)
+      .subscribe(t => this.todos$.next([...this.todos$.value, t]));
+  }
 }
