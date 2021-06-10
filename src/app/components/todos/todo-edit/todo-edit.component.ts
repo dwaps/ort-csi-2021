@@ -1,4 +1,4 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Todo } from 'src/app/shared/models/todo';
 import { TodoService } from 'src/app/shared/services/todo.service';
@@ -8,7 +8,7 @@ import { TodoService } from 'src/app/shared/services/todo.service';
   templateUrl: './todo-edit.component.html',
   styleUrls: ['./todo-edit.component.css']
 })
-export class TodoEditComponent implements DoCheck {
+export class TodoEditComponent implements OnInit {
   public todo = new Todo();
 
   constructor(
@@ -17,9 +17,11 @@ export class TodoEditComponent implements DoCheck {
     private router: Router,
   ) { }
 
-  ngDoCheck(): void {
+  ngOnInit(): void {
     const id = <string>this.route.snapshot.paramMap.get('id');
-    this.todo = <Todo>this.todoService.getTodo(id);
+    this.todoService.todos$.subscribe(data => {
+      this.todo = this.todoService.getTodo(id) || new Todo();
+    });
   }
 
   updateTodo() {
