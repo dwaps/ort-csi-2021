@@ -1,0 +1,74 @@
+<h1>Formulaire de contact</h1>
+
+<pre>
+  {{ contactForm.value | json }}
+</pre>
+  
+<form #contactForm="ngForm" (ngSubmit)="submitForm(contactForm)">
+  <p>
+    <label>
+      Nom:
+      <input type="text" [(ngModel)]="contact.lastname" name="lastname" #lastname="ngModel" minlength="3" ngModel>
+    </label>
+  </p>
+  <div style="color:red" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+    Le nom doit comporter au moins 3 lettres.
+  </div>
+  <p>
+    <label>
+      Prénom:
+      <input type="text" [(ngModel)]="contact.firstname" name="firstname" #firstname="ngModel" ngModel>
+    </label>
+  </p>
+  <p>
+    <label>
+      Email:
+      <input type="text" [(ngModel)]="contact.email" name="email" #email="ngModel" ngModel>
+    </label>
+  </p>
+  <p>
+    <label>
+      Genre:
+      <input type="radio" [(ngModel)]="contact.gender" name="gender" #gender="ngModel" value="male" ngModel>
+      <input type="radio" name="gender" value="female" ngModel>
+    </label>
+  </p>
+  <p>
+    <label>
+      Êtes-vous marié ?
+      <input type="checkbox" [(ngModel)]="contact.isMarried" name="isMarried" #isMarried="ngModel" ngModel>
+    </label>
+  </p>
+  <div ngModelGroup="address">
+    <p>
+      <label>
+        Adresse:
+        <input type="text" [(ngModel)]="address.street" name="street" #street="ngModel" ngModel>
+      </label>
+    </p>
+    <p>
+      <label>
+        Code postal:
+        <input type="text" [(ngModel)]="address.zipcode" name="zipcode" #zipcode="ngModel" ngModel>
+      </label>
+    </p>
+    <p>
+      <label>
+        Ville:
+        <input type="text" [(ngModel)]="address.city" name="city" #city="ngModel" ngModel>
+      </label>
+    </p>
+  </div>
+  <p>
+    <label>
+      Pays:
+      <select name="country" [(ngModel)]="contact.country"  #country="ngModel" ngModel>
+        <option selected value=""></option>
+        <option [ngValue]="country.id" *ngFor="let country of countries">
+          {{ country.name }}
+        </option>
+      </select>
+    </label>
+  </p>
+  <button type="submit">Envoyer</button>
+</form>
