@@ -30,4 +30,13 @@ export class TodoService {
       .post<Todo>(this.urlApiTodos, todo)
       .subscribe(t => this.todos$.next([...this.todos$.value, t]));
   }
+
+  public updateTodo(todo: Todo) {
+    this.http
+      .put<Todo>(`${this.urlApiTodos}/${todo.id}`, todo)
+      .subscribe(t => {
+        const todos = this.todos$.value.filter(el => el.id !== todo.id);
+        this.todos$.next([...todos, t]);
+      });
+  }
 }

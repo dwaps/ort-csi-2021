@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { TodoDetailComponent } from './components/todos/todo-detail/todo-detail.component';
 import { TodoComponent } from './components/todos/todo/todo.component';
 import { TodosComponent } from './components/todos/todos.component';
+import { TodoEditComponent } from './components/todos/todo-edit/todo-edit.component';
 
 
 const routes: Route[] = [
   { path: 'todolist', component: TodosComponent },
   { path: 'todo/:id', component: TodoDetailComponent },
+  { path: 'todo/:id/edit', component: TodoEditComponent },
   { path: '**', redirectTo: 'todolist' },
 ];
 
@@ -21,6 +23,7 @@ const routes: Route[] = [
     TodosComponent,
     TodoComponent,
     TodoDetailComponent,
+    TodoEditComponent,
   ],
   imports: [
     BrowserModule,

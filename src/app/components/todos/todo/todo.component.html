@@ -1,6 +1,6 @@
 <div
     class="todo"
-    [style.textDecoration]="todo.done ? 'line-through' : ''">
+    [class.done]="todo.done">
     <input
       [id]="todo.id"
       [checked]="todo.done"
@@ -8,4 +8,5 @@
       (change)="todo.done = !todo.done">
     <label [for]="todo.id">{{ todo.message }}</label>
     --- <button [routerLink]="['/todo', todo.id]">▶︎</button>
+    <button [routerLink]="['/todo', todo.id, 'edit']">✎</button>
 </div>
