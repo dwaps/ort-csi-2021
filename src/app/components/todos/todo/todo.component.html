@@ -9,4 +9,5 @@
     <label [for]="todo.id">{{ todo.message }}</label>
     --- <button [routerLink]="['/todo', todo.id]">▶︎</button>
     <button [routerLink]="['/todo', todo.id, 'edit']">✎</button>
+    <button (click)="deleteTodo()">✖︎</button>
 </div>

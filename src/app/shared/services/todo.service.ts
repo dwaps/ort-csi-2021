@@ -39,4 +39,13 @@ export class TodoService {
         this.todos$.next([...todos, t]);
       });
   }
+
+  public deleteTodo(id: string) {
+    this.http
+      .delete(`${this.urlApiTodos}/${id}`)
+      .subscribe(() => {
+        const todos = this.todos$.value.filter(el => el.id !== id);
+        this.todos$.next(todos);
+      })
+  }
 }

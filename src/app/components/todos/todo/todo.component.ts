@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Todo } from 'src/app/shared/models/todo';
+import { TodoService } from 'src/app/shared/services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -8,4 +9,8 @@ import { Todo } from 'src/app/shared/models/todo';
 })
 export class TodoComponent {
   @Input() todo: Todo = new Todo();
+  constructor(private todoService: TodoService) {}
+  public deleteTodo() {
+    this.todoService.deleteTodo(<string>this.todo.id);
+  }
 }
