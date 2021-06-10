@@ -64,8 +64,8 @@
       Pays:
       <select name="country" [(ngModel)]="contact.country"  #country="ngModel" ngModel>
         <option selected value=""></option>
-        <option [ngValue]="country.id" *ngFor="let country of countries">
-          {{ country.name }}
+        <option [value]="country" *ngFor="let country of countries">
+          {{ country }}
         </option>
       </select>
     </label>

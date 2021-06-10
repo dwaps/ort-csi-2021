@@ -1,5 +1,5 @@
 export enum Country {
-  INDIA,
-  FRANCE,
-  SPAIN,
+  INDIA = "Inde",
+  FRANCE = "France",
+  SPAIN = "Espagne",
 }
